@@ -5,7 +5,7 @@ using UnityEngine;
 public class CameraMotor : MonoBehaviour
 {
     public Transform lookAt;
-    public Vector3 offset = new Vector3(0, 5, -10);
+    public Vector3 offset;
 
     void Start()
     {
@@ -13,7 +13,7 @@ public class CameraMotor : MonoBehaviour
     }
 
     // Update is called once per frame
-    void LateUpdate()
+    void Update()
     {
         Vector3 desiredPosition = lookAt.position + offset;
         desiredPosition.x = 0;
