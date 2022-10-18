@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     }
     public float CoinScoreAmout = 5;
     private bool isGameStarted = false;
+    public bool isDead { set; get; }
     private PlayerController controller;
 
     //UI and the UI fields
@@ -36,7 +37,7 @@ public class GameManager : MonoBehaviour
             controller.StartRunning();
         }
 
-        if (isGameStarted)
+        if (isGameStarted && !isDead)
         {
             //Bump Score Up
          
