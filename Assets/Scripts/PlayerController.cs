@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    private const float LANE_DISTANCE = 2.0f;
+    private const float LANE_DISTANCE = 2.5f;
     private const float TURN_SPEED = 0.05f;
 
 
@@ -104,7 +104,8 @@ public class PlayerController : MonoBehaviour
             {
                 //Slide
                 StartSliding();
-                Invoke("StopSliding", 1);
+               
+                Invoke("StopSliding", 1.7f);
             }
         }
 
@@ -159,6 +160,7 @@ public class PlayerController : MonoBehaviour
 
     void StartSliding()
     {
+
         playerAnimator.SetBool("Sliding", true);
         characterController.height /= 2;
         characterController.center = new Vector3(characterController.center.x, characterController.center.y / 2, characterController.center.z);
