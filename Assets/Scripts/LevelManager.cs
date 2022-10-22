@@ -15,7 +15,7 @@ public class LevelManager : MonoBehaviour
     private const int INITIAL_TRANSITION_SEGMENTS = 2;
     private const int MAX_SEGMENT_ON_SCREEN = 15;
 
-    private Transform cameraContainer;
+    public Transform cameraContainer;
     private int amountOfActiveSegments;
     private int continiousSegments;
     private int currentSpawnZ;
@@ -28,6 +28,7 @@ public class LevelManager : MonoBehaviour
     public List<Piece> longblocks = new List<Piece>();
     public List<Piece> jumps = new List<Piece>();
     public List<Piece> slides = new List<Piece>();
+   
 
     [HideInInspector]
     public List<Piece> pieces = new List<Piece>();
@@ -47,7 +48,7 @@ public class LevelManager : MonoBehaviour
     private void Awake()
     {
         Instance = this;
-        cameraContainer = Camera.main.transform;
+       // cameraContainer = Camera.main.transform;
         currentSpawnZ = 0;
         currentLevel = 0;
 

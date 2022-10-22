@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 2
-  visualIndex: 0
+  visualIndex: 1
 --- !u!1001 &3274020498572417175
 PrefabInstance:
   m_ObjectHideFlags: 0

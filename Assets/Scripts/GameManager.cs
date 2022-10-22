@@ -14,10 +14,22 @@ public class GameManager : MonoBehaviour
     private PlayerController controller;
 
     //UI and the UI fields
+    public Animator gameCanvas;
     public TextMeshProUGUI scoreText, coinText, modifierText;
 
     private float score, coinScore, modifierScore;
     private int lastScore;
+    
+
+
+    //Death Menu
+    public Animator deathMenuAnim;
+    public TextMeshProUGUI deadScoreText, deadCoinText;
+
+
+    //cameras
+    public Camera introCam;
+    public Camera mainCam;
 
     void Awake(){
 
@@ -27,6 +39,9 @@ public class GameManager : MonoBehaviour
         scoreText.text = score.ToString("0");
         coinText.text = coinScore.ToString("0");
         controller = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+
+        introCam.gameObject.SetActive(true);
+        mainCam.gameObject.SetActive(false);
     }
 
     void Update()
@@ -35,6 +50,11 @@ public class GameManager : MonoBehaviour
         {
             isGameStarted = true;
             controller.StartRunning();
+           // FindObjectOfType<BuildingSpawner>().IsScrolling = true;
+            mainCam.gameObject.SetActive(true);
+            introCam.gameObject.SetActive(false);
+            mainCam.GetComponent<CameraMotor>().IsMoving = true;
+            gameCanvas.SetTrigger("Show");
         }
 
         if (isGameStarted && !isDead)
@@ -64,5 +84,19 @@ public class GameManager : MonoBehaviour
     {
         modifierScore = 1f + modifierAmount;
         modifierText.text = "x" + modifierScore.ToString("0.0");
+    }
+
+    public void OnPlayButton()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene("Game");
+    }
+
+    public void OnDeath()
+    {
+        isDead = true;
+        FindObjectOfType<BuildingSpawner>().IsScrolling = false;
+        deadScoreText.text = score.ToString("0");
+        deadCoinText.text = coinScore.ToString("0");
+        deathMenuAnim.SetTrigger("Dead");
     }
 }

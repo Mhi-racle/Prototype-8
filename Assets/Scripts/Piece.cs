@@ -9,6 +9,7 @@ public enum PieceType
     longblock = 1,
     jump = 2,
     slide = 3,
+   
 }
 public class Piece : MonoBehaviour
 {

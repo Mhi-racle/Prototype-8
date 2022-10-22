@@ -22,6 +22,7 @@ public class PlayerController : MonoBehaviour
 
     //Speed modifier
     public  float originalSpeed = 7f;
+    public float horizontalSpeed = 7f;
     public float speed;
     private float speedIncreaseLastTick;
     private float speedIncreaseTime = 2.5f;
@@ -81,7 +82,7 @@ public class PlayerController : MonoBehaviour
 
         //Calculate move delta
         Vector3 moveVector = Vector3.zero;
-        moveVector.x = (int)((targetPosition - transform.position).x * speed);
+        moveVector.x = (int)((targetPosition - transform.position).x * horizontalSpeed);
 
         bool isGrounded = IsGrounded();
         playerAnimator.SetBool("Grounded", isGrounded);
@@ -126,10 +127,10 @@ public class PlayerController : MonoBehaviour
         //Move the player;
         characterController.Move(moveVector * Time.deltaTime);
 
-        // //Rotate the player to where he is going
-        // Vector3 dir = characterController.velocity;
-        // dir.y = 0;
-        // transform.forward = Vector3.Lerp(transform.forward, dir, TURN_SPEED);
+         //Rotate the player to where he is going
+         Vector3 dir = characterController.velocity;
+         dir.y = 0;
+         transform.forward = Vector3.Lerp(transform.forward, dir, TURN_SPEED);
     }
 
     private void MoveLane(bool goingRight)
@@ -178,7 +179,7 @@ public class PlayerController : MonoBehaviour
     {
         playerAnimator.SetTrigger("Death");
         isRunning = false;
-        GameManager.Instance.isDead = true;
+        GameManager.Instance.OnDeath();
     }
     void OnControllerColliderHit(ControllerColliderHit hit)
     {

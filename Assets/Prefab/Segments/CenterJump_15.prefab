@@ -736,6 +736,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Jump
       objectReference: {fileID: 0}
+    - target: {fileID: 4616163576616430449, guid: e23d426382340374bbd7148b76ce4fde, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.46493793
+      objectReference: {fileID: 0}
+    - target: {fileID: 4616163576616430449, guid: e23d426382340374bbd7148b76ce4fde, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.071538694
+      objectReference: {fileID: 0}
+    - target: {fileID: 4616163576616430449, guid: e23d426382340374bbd7148b76ce4fde, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.226
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e23d426382340374bbd7148b76ce4fde, type: 3}
 --- !u!4 &7218890552559957714 stripped
