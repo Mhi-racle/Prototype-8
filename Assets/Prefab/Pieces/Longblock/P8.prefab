@@ -64,11 +64,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: df923bdbfa0881e4a95755661e97b672, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.037763603
+      value: 0.038985603
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: df923bdbfa0881e4a95755661e97b672, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.037763603
+      value: 0.030450681
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: df923bdbfa0881e4a95755661e97b672, type: 3}
       propertyPath: m_LocalPosition.x

@@ -94,7 +94,7 @@ public class GameManager : MonoBehaviour
     public void OnDeath()
     {
         isDead = true;
-        FindObjectOfType<BuildingSpawner>().IsScrolling = false;
+        //FindObjectOfType<BuildingSpawner>().IsScrolling = false;
         deadScoreText.text = score.ToString("0");
         deadCoinText.text = coinScore.ToString("0");
         deathMenuAnim.SetTrigger("Dead");
