@@ -15,7 +15,7 @@ public class GameManager : MonoBehaviour
 
     //UI and the UI fields
     public Animator gameCanvas;
-    public TextMeshProUGUI scoreText, coinText, modifierText;
+    public TextMeshProUGUI scoreText, coinText, modifierText, highScoreText;
 
     private float score, coinScore, modifierScore;
     private int lastScore;
@@ -42,6 +42,8 @@ public class GameManager : MonoBehaviour
 
         introCam.gameObject.SetActive(true);
         mainCam.gameObject.SetActive(false);
+
+        highScoreText.text = PlayerPrefs.GetInt("Hiscore").ToString();
     }
 
     void Update()
@@ -50,6 +52,7 @@ public class GameManager : MonoBehaviour
         {
             isGameStarted = true;
             controller.StartRunning();
+            highScoreText.gameObject.SetActive(false);
            // FindObjectOfType<BuildingSpawner>().IsScrolling = true;
             mainCam.gameObject.SetActive(true);
             introCam.gameObject.SetActive(false);
@@ -98,5 +101,15 @@ public class GameManager : MonoBehaviour
         deadScoreText.text = score.ToString("0");
         deadCoinText.text = coinScore.ToString("0");
         deathMenuAnim.SetTrigger("Dead");
+        gameCanvas.SetTrigger("Hide");
+
+        //check if highscore
+        if(score > PlayerPrefs.GetInt("Hiscore"))
+        {
+            float s = score;
+            if (s % 1 == 0)
+                s += 1;
+            PlayerPrefs.SetInt("Hiscore", (int)s);
+        }
     }
 }
