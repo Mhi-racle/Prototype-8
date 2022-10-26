@@ -31,6 +31,10 @@ public class GameManager : MonoBehaviour
     public Camera introCam;
     public Camera mainCam;
 
+    //Sound 
+    public static bool mute;
+
+
     void Awake(){
 
         Instance =this;

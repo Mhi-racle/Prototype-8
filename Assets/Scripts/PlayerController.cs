@@ -177,6 +177,7 @@ public class PlayerController : MonoBehaviour
 
     void Crash()
     {
+        AudioManager.instance.Play("Hit");
         playerAnimator.SetTrigger("Death");
         isRunning = false;
         GameManager.Instance.OnDeath();
